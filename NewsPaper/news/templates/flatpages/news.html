@@ -1,0 +1,33 @@
+                                          Так вот!
+{% extends 'flatpages/default.html' %}
+{% load censor_filters %}
+{% load custom_tags %}
+
+{% block title %}
+Post
+{% endblock title %}
+`
+{% block content %}
+    <h1>Новость</h1>
+    <h3>{% current_time '%b %d %Y %A' %}</h3>
+    <h4>{{ next_sale|default_if_none:"Смотрим, читаем." }}</h4>
+
+    <hr>
+
+        <table>
+            <tr>
+                <td>Заголовок</td>
+                <td>Текст</td>
+                <td>Дата</td>
+            </tr>
+
+            <tr>
+                <td>{{ news.post_title|censor }}</td>
+                <td>{{ news.post_text|censor }}</td>
+                <td>{{ news.post_datetime|date:'d M Y' }}</td>
+            </tr>
+
+        </table>
+
+
+{% endblock content %}

@@ -1,0 +1,8 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_tags %}
+
+{% block content %}
+
+    <h1>Привет! незареганный пользователь!</h1>
+    <h3>{% current_time '%b %d %Y %A' %}</h3>
+{% endblock content %}
